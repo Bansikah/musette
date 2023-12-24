@@ -1,0 +1,33 @@
+{
+  "name": "musette",
+  "version": "1.0.0",
+  "description": "This is an automation tool to initialize git workflows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "This",
+    "is",
+    "a",
+    "node",
+    "js",
+    "cli",
+    "application"
+  ],
+  "author": "Bansikah",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "chalk": "^5.3.0",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^6.0.0",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.12",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8",
+    "simple-git": "^3.21.0",
+    "touch": "^3.1.0"
+  }
+}
