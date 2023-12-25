@@ -1,24 +1,26 @@
 import chalk from 'chalk';
-const clear = require('clear');
-const figlet = require('figlet');
-const files = require('./lib/files');
-const github = require('./lib/github_credentials');
+import clear from 'clear';
+import figlet from 'figlet';
+import files from './lib/files.mjs';
+import github from './lib/github_credentials.mjs';
+//import github_crendetials from './lib/github_crendetials.mjs';
+const github_credentials = require('./lib/github_credentials');
+
+import musette from 'musette';
 
 musette
   .command('init')
   .description('Draw App banner')
   .action(() => {
     clear();
-    console.log(chalk.magenta(figlet.textSync('musette', { horizontalLayout: 'full' })
-    )
-    );
+    console.log(chalk.magenta(figlet.textSync('musette', { horizontalLayout: 'full' })));
   });
 
 musette
   .command('octocheck')
   .description('check user GitHub Credentials')
   .action(async () => {
-    const token = github.getStoredGitHubToken();
+    let token = github.getStoredGitHubToken();
     if (!token) {
       await github.setGitHubCredentials();
       token = await github.registerNewToken();
@@ -27,6 +29,7 @@ musette
   });
 
 musette.parse(process.argv);
+
 if (!musette.args.length) {
   musette.help();
 }
